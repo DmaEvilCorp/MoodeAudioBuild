@@ -1,0 +1,161 @@
+
+C:\Users\David\AppData\Local\Temp\arduino_build_484707/Attiny_PSU.ino.elf:     file format elf32-avr
+
+
+Disassembly of section .text:
+
+00000000 <__vectors>:
+__vectors():
+   0:	09 c0       	rjmp	.+18     	; 0x14 <__ctors_end>
+   2:	39 c0       	rjmp	.+114    	; 0x76 <__bad_interrupt>
+   4:	38 c0       	rjmp	.+112    	; 0x76 <__bad_interrupt>
+   6:	37 c0       	rjmp	.+110    	; 0x76 <__bad_interrupt>
+   8:	36 c0       	rjmp	.+108    	; 0x76 <__bad_interrupt>
+   a:	35 c0       	rjmp	.+106    	; 0x76 <__bad_interrupt>
+   c:	34 c0       	rjmp	.+104    	; 0x76 <__bad_interrupt>
+   e:	33 c0       	rjmp	.+102    	; 0x76 <__bad_interrupt>
+  10:	32 c0       	rjmp	.+100    	; 0x76 <__bad_interrupt>
+  12:	31 c0       	rjmp	.+98     	; 0x76 <__bad_interrupt>
+
+00000014 <__ctors_end>:
+__trampolines_start():
+  14:	11 24       	eor	r1, r1
+  16:	1f be       	out	0x3f, r1	; 63
+  18:	cf e9       	ldi	r28, 0x9F	; 159
+  1a:	cd bf       	out	0x3d, r28	; 61
+
+0000001c <__do_clear_bss>:
+__do_clear_bss():
+/home/jenkins-mingw32/workspace/avr-gcc-staging/label/Ubuntu14.04x64-mingw32/gcc-build/avr/avr25/tiny-stack/libgcc/../../../../../gcc/libgcc/config/avr/lib1funcs.S:2441
+  1c:	20 e0       	ldi	r18, 0x00	; 0
+/home/jenkins-mingw32/workspace/avr-gcc-staging/label/Ubuntu14.04x64-mingw32/gcc-build/avr/avr25/tiny-stack/libgcc/../../../../../gcc/libgcc/config/avr/lib1funcs.S:2442
+  1e:	a0 e6       	ldi	r26, 0x60	; 96
+/home/jenkins-mingw32/workspace/avr-gcc-staging/label/Ubuntu14.04x64-mingw32/gcc-build/avr/avr25/tiny-stack/libgcc/../../../../../gcc/libgcc/config/avr/lib1funcs.S:2443
+  20:	b0 e0       	ldi	r27, 0x00	; 0
+/home/jenkins-mingw32/workspace/avr-gcc-staging/label/Ubuntu14.04x64-mingw32/gcc-build/avr/avr25/tiny-stack/libgcc/../../../../../gcc/libgcc/config/avr/lib1funcs.S:2444
+  22:	01 c0       	rjmp	.+2      	; 0x26 <.do_clear_bss_start>
+
+00000024 <.do_clear_bss_loop>:
+/home/jenkins-mingw32/workspace/avr-gcc-staging/label/Ubuntu14.04x64-mingw32/gcc-build/avr/avr25/tiny-stack/libgcc/../../../../../gcc/libgcc/config/avr/lib1funcs.S:2446
+  24:	1d 92       	st	X+, r1
+
+00000026 <.do_clear_bss_start>:
+/home/jenkins-mingw32/workspace/avr-gcc-staging/label/Ubuntu14.04x64-mingw32/gcc-build/avr/avr25/tiny-stack/libgcc/../../../../../gcc/libgcc/config/avr/lib1funcs.S:2448
+  26:	a2 36       	cpi	r26, 0x62	; 98
+/home/jenkins-mingw32/workspace/avr-gcc-staging/label/Ubuntu14.04x64-mingw32/gcc-build/avr/avr25/tiny-stack/libgcc/../../../../../gcc/libgcc/config/avr/lib1funcs.S:2449
+  28:	b2 07       	cpc	r27, r18
+/home/jenkins-mingw32/workspace/avr-gcc-staging/label/Ubuntu14.04x64-mingw32/gcc-build/avr/avr25/tiny-stack/libgcc/../../../../../gcc/libgcc/config/avr/lib1funcs.S:2450
+  2a:	e1 f7       	brne	.-8      	; 0x24 <.do_clear_bss_loop>
+.do_clear_bss_start():
+  2c:	01 d0       	rcall	.+2      	; 0x30 <main>
+  2e:	24 c0       	rjmp	.+72     	; 0x78 <_exit>
+
+00000030 <main>:
+main():
+C:\Users\David\AppData\Local\Arduino15\packages\MicroCore\hardware\avr\2.0.0\cores\microcore/wiring_digital.c:19
+void pinMode(uint8_t pin, uint8_t mode)
+{
+ check_valid_digital_pin(pin);
+  
+  if(mode == OUTPUT) // Pin as output
+    DDRB |= _BV(pin);
+  30:	b8 9a       	sbi	0x17, 0	; 23
+pinMode():
+  32:	b9 9a       	sbi	0x17, 1	; 23
+C:\Users\David\AppData\Local\Arduino15\packages\MicroCore\hardware\avr\2.0.0\cores\microcore/wiring_digital.c:23
+      
+  else // Pin as input or input pullup
+  {
+    DDRB &= ~_BV(pin); // Set pin as input
+  34:	ba 98       	cbi	0x17, 2	; 23
+digitalRead():
+C:\Users\David\AppData\Local\Arduino15\packages\MicroCore\hardware\avr\2.0.0\cores\microcore/wiring_digital.c:45
+
+uint8_t digitalRead(uint8_t pin)
+{
+  check_valid_digital_pin(pin);
+  
+  return !!(PINB & _BV(pin));
+  36:	26 b3       	in	r18, 0x16	; 22
+  38:	22 fb       	bst	r18, 2
+  3a:	88 27       	eor	r24, r24
+  3c:	80 f9       	bld	r24, 0
+  3e:	90 e0       	ldi	r25, 0x00	; 0
+loop():
+C:\Users\David\Desktop\MoodeAudio\Attiny_PSU/Attiny_PSU.ino:26
+}
+  
+void loop() {
+  // put your main code here, to run repeatedly:
+  // read the state of the pushbutton value:
+  buttonState = digitalRead(BUTTON_PIN);
+  40:	90 93 61 00 	sts	0x0061, r25	; 0x800061 <__DATA_REGION_ORIGIN__+0x1>
+  44:	80 93 60 00 	sts	0x0060, r24	; 0x800060 <__DATA_REGION_ORIGIN__>
+C:\Users\David\Desktop\MoodeAudio\Attiny_PSU/Attiny_PSU.ino:29
+
+  // check if the pushbutton is pressed. If it is, the buttonState is HIGH:
+  if (buttonState == HIGH & relayState == 0){
+  48:	89 2b       	or	r24, r25
+  4a:	a9 f3       	breq	.-22     	; 0x36 <main+0x6>
+  4c:	29 ee       	ldi	r18, 0xE9	; 233
+  4e:	33 e0       	ldi	r19, 0x03	; 3
+  50:	06 c0       	rjmp	.+12     	; 0x5e <__SREG__+0x1f>
+_delay_ms():
+c:\program files (x86)\arduino\hardware\tools\avr\avr\include\util/delay.h:187
+	#else
+		//round up by default
+		__ticks_dc = (uint32_t)(ceil(fabs(__tmp)));
+	#endif
+
+	__builtin_avr_delay_cycles(__ticks_dc);
+  52:	ef e5       	ldi	r30, 0x5F	; 95
+  54:	f9 e0       	ldi	r31, 0x09	; 9
+  56:	31 97       	sbiw	r30, 0x01	; 1
+  58:	f1 f7       	brne	.-4      	; 0x56 <__SREG__+0x17>
+  5a:	00 c0       	rjmp	.+0      	; 0x5c <__SREG__+0x1d>
+  5c:	00 00       	nop
+  5e:	21 50       	subi	r18, 0x01	; 1
+  60:	31 09       	sbc	r19, r1
+delay():
+C:\Users\David\AppData\Local\Arduino15\packages\MicroCore\hardware\avr\2.0.0\cores\microcore/wiring.c:120
+
+
+// Wrapper to deal with _delay_ms(), which is an inline function
+void delay(uint16_t ms)
+{
+  while(ms--)
+  62:	b9 f7       	brne	.-18     	; 0x52 <__SREG__+0x13>
+loop():
+C:\Users\David\Desktop\MoodeAudio\Attiny_PSU/Attiny_PSU.ino:32
+    // turn relay on after 1 second:
+    delay(1000);
+      if (buttonState == HIGH & relayState == 0){
+  64:	20 91 60 00 	lds	r18, 0x0060	; 0x800060 <__DATA_REGION_ORIGIN__>
+  68:	30 91 61 00 	lds	r19, 0x0061	; 0x800061 <__DATA_REGION_ORIGIN__+0x1>
+  6c:	21 30       	cpi	r18, 0x01	; 1
+  6e:	31 05       	cpc	r19, r1
+  70:	11 f7       	brne	.-60     	; 0x36 <main+0x6>
+digitalWrite():
+C:\Users\David\AppData\Local\Arduino15\packages\MicroCore\hardware\avr\2.0.0\cores\microcore/wiring_digital.c:35
+void digitalWrite(uint8_t pin, uint8_t val)
+{
+  check_valid_digital_pin(pin);
+    
+  if(val)
+    PORTB |= _BV(pin);  // Set pin high
+  72:	c0 9a       	sbi	0x18, 0	; 24
+  74:	e0 cf       	rjmp	.-64     	; 0x36 <main+0x6>
+
+00000076 <__bad_interrupt>:
+__vector_1():
+  76:	c4 cf       	rjmp	.-120    	; 0x0 <__vectors>
+
+00000078 <_exit>:
+exit():
+/home/jenkins-mingw32/workspace/avr-gcc-staging/label/Ubuntu14.04x64-mingw32/gcc-build/avr/avr25/tiny-stack/libgcc/../../../../../gcc/libgcc/config/avr/lib1funcs.S:2278
+  78:	f8 94       	cli
+
+0000007a <__stop_program>:
+__stop_program():
+/home/jenkins-mingw32/workspace/avr-gcc-staging/label/Ubuntu14.04x64-mingw32/gcc-build/avr/avr25/tiny-stack/libgcc/../../../../../gcc/libgcc/config/avr/lib1funcs.S:2280
+  7a:	ff cf       	rjmp	.-2      	; 0x7a <__stop_program>
