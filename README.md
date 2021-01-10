@@ -27,4 +27,3 @@ Todo :
 - Resolve GPIO bug.
 - Print front panel to cover the screw.
 - Run pydPiper without Docker, too slow for my rpi.
-- Adapt pydPier 2x16 config to 2x20.
