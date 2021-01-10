@@ -21,9 +21,13 @@ Power supply controler :
 Display :
 - Using a HD44780 compatible display 2x20.
 - Drive by pydPiper https://github.com/dhrone/pydPiper.
-
+- pydPiper is running outside of docker for performance (pi2 too slow).
+  - Autostart in /etc/rc.local by adding the line (at the end of the file) sudo sh /home/pi/pydpiper.sh &
+  - pydpiper.sh simply do :
+    - cd /home/pi/pydPiper
+    - sudo python pydPiper.py
+    
 Todo :
 - Upgrade to MoodeAudio 7.x.
 - Resolve GPIO bug.
 - Print front panel to cover the screw.
-- Run pydPiper without Docker, too slow for my rpi.
