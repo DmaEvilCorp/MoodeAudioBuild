@@ -8,7 +8,7 @@ Front and back are in plastic, much easier for working.
 I've used FrontPanel from Schaeffer to make the design.
 
 Power supply :
-- Toroidal transformer 2x115vac / 2x15vac 18VA (modified to 12vac / 8vac).
+- Toroidal transformer 2x115vac / 2x15vac 18VA (modified to 1x15vac / 1x8vac).
 - 5vdc regulator with a LD1805 (2x2200uF) (BYV-100 Diode).
 
 Power supply controler :
